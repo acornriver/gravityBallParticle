@@ -13,6 +13,12 @@ function draw() {
   let gravity = createVector(0, 0.2);
   ball.addForce(gravity);
 
+  //wind if mouse pressed
+  if(mouseIsPressed === true){
+    let wind = createVector(random(0, 0.1),0);
+    ball.addForce(wind);
+  }
+
   ball.update();
   ball.show();
 }
