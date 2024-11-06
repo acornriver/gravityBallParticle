@@ -24,6 +24,7 @@ class Particle {
 
 
   checkEdge() {
+    //아래쪽 경계를 넘으면 위로 튕기게 함
     if ((this.pos.y+this.w/2) > height) {
       this.pos.y = height-this.w/2;
       this.vel.y = this.vel.y * -1;
