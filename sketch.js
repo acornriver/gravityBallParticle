@@ -24,3 +24,4 @@ function draw() {
   ball.update();
   ball.show();
 }
+
