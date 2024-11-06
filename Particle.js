@@ -16,6 +16,8 @@ class Particle {
     this.vel.add(this.acc);
     this.pos.add(this.vel);
 
+    this.vel.mult(0.95);
+
     this.acc.set(0, 0);
     this.checkEdge();
   }
@@ -26,9 +28,19 @@ class Particle {
       this.pos.y = height-this.w/2;
       this.vel.y = this.vel.y * -1;
     }
+  // 위쪽 경계를 넘으면 아래로 튕기게 함
+  if ((this.pos.y - this.w / 2) < 0) {
+    this.pos.y = this.w / 2;
+    this.vel.y *= -1;
+  }
     
+
     if (this.pos.x > width) {
       this.pos.x = 0;
+    }
+      
+    if (this.pos.x < 0) {
+      this.pos.x = width;
     }
   }
 
