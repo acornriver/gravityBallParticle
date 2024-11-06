@@ -1,7 +1,6 @@
 let ball;
 
 function setup() {
-  createCanvas(400, 200);
   createCanvas(800, 400);
 
   ball = new Particle();
@@ -14,15 +13,18 @@ function draw() {
   let gravity = createVector(0, 0);
   ball.addForce(gravity);
 
-  if(mouseIsPressed === true){
-    let wind = createVector(random(0, 0.1),0);
-    ball.addForce(wind);
-    // let wind = createVector(random(0, 0.1),0);
-    // ball.addForce(wind);
-  }
 
   ball.update();
   ball.show();
 }
 
 function mouseClicked(){
+
+  let mp = createVector(mouseX, mouseY);
+  let took = p5.Vector.sub(ball.pos, mp);
+
+  took.mult(0.1);
+
+  ball.addForce(took);
+
+}
